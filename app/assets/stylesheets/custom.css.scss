@@ -33,6 +33,15 @@ textarea {
   }
 }
 
+.jumbotron {
+  position: relative;
+  background: url("prague_clk_tower.jpg") center center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+}
+
 /* typography */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -174,4 +183,8 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.jumbotron-text {
+  color: #ffffff;
 }
