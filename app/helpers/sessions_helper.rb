@@ -13,6 +13,10 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
+  def current_user?(user)
+    @user == current_user
+  end
+
   # returns the current logged in user(if any)
   def current_user
     if (user_id = session[:user_id])
@@ -37,11 +41,21 @@ module SessionsHelper
     @current_user = nil
   end
 
-
   # forgets a persistent session
   def forget(user)
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
+  end
+
+  def store_location
+    #   Stores the URL that is trying to be accessed, applies to protected paths like edit and update
+    session[:forwarding_url] = request.url if request.get?
+  end
+
+  def redirect_back_or(default)
+  #   Redirects to stored location or to a default if stored location doesn't exist
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
   end
 end

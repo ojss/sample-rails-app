@@ -5,3 +5,26 @@ ojas:
   name: example
   email: lol@loo.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+
+evie:
+  name: exampley
+  email: evIl@loo.com
+  password_digest: <%= User.digest('password') %>
+
+jacob:
+  name: Jacob Frye
+  email: assassin@creed.com
+  password_digest: <%= User.digest('password') %>
+
+geralt:
+  name: Geralt of Rivia
+  email: witcher@morhen.com
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= Faker::Name.name %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
