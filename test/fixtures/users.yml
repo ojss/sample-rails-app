@@ -3,7 +3,7 @@
 
 ojas:
   name: example
-  email: lol@loo.com
+  email: example@railstutorial.org
   password_digest: <%= User.digest('password') %>
   admin: true
   activated: true
