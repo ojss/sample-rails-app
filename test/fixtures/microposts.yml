@@ -3,15 +3,38 @@
 orange:
   content: 'Jaina'
   created_at: <%= 10.minutes.ago %>
-
+  user: ojas
 witcher:
   content: 'The wild hunt is here'
   created_at: <%= 3.years.ago %>
-
+  user: ojas
 cat:
   content: 'cats lol'
   created_at: <%= 2.hours.ago %>
-
+  user: ojas
 most_recent:
   content: 'this is the most recent one'
   created_at: <%= Time.zone.now %>
+  user: ojas
+
+<% 50.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: ojas
+<% end %>
+
+kraken:
+  content: "Release the kraken!"
+  created_at: <%= 2.years.ago %>
+  user: evie
+
+doggie:
+  content: "Little doggie!"
+  created_at: <%= 3.days.ago %>
+  user: jacob
+
+anime:
+  content: "Anime.."
+  created_at: <%= 10.minutes.ago %>
+  user: geralt
